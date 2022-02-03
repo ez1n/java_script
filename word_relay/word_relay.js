@@ -19,7 +19,7 @@ const click_btn = () => {
     }
 
   } else {//full and not correct
-    alert('fail!');
+    alert('올바르지 않은 단어입니다!');
   }
   $input.value = ''; //입력창 비우기
   $input.focus(); //입력창 내부에 커서 위치
