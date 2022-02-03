@@ -27,6 +27,9 @@ const click_btn = () => {
   }
   $input.value = ''; //입력창 비우기
   $input.focus(); //입력창 내부에 커서 위치
+
+  const $result = document.querySelector('#result'); 
+  $result.innerHTML += $word.textContent ;
 };
 
 // 엔터 키 이벤트
