@@ -28,6 +28,5 @@ const on_input = (event) => {
   new_word = event.target.value; //입력 단어 -> 현재 단어로 변경
 };
 
-//이벤트
 $input.addEventListener('input', on_input);
 $button.addEventListener('click', click_btn);
