@@ -29,7 +29,7 @@ const click_btn = () => {
   $input.focus(); //입력창 내부에 커서 위치
 
   const $result = document.querySelector('#result'); 
-  $result.innerHTML += $word.textContent ;
+  $result.innerHTML += $word.textContent;
 };
 
 // 엔터 키 이벤트

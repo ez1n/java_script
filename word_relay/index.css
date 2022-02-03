@@ -1,28 +1,52 @@
 body {
   background-color: aliceblue;
-  padding-left: 10px;
-
+  padding-left: 20px;
+  padding-top: 30px;
+  font-family: 'Single Day', cursive;
 }
 
-h2 {
+h1 {
   background-color: lightpink;
-  width: max-content; height: max-content;
+  width: 180px; height: 40px;
   border-radius: 10px;
-  border: 3px solid salmon;
+  border: 5px solid salmon;
+  text-align: center;
 }
 
 #game {
   background-color: whitesmoke;
-  width: 300px; height: 130px;
+  width: 300px; height: 170px;
   border-radius: 10px;
   border: 5px dashed rgb(108, 148, 221);
   text-align: center;
+  padding-top: 10px;
 }
 
 #number {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 #text {
+  font-size: 30px;
+}
+
+#result {
+  font-size: 30px;
+  width: 320px;
+}
+
+button {
+  font-family: 'Single Day', cursive;
+  background-color: lightskyblue;
+  font-size: 20px;
+  width: 60px; height: 40px;
+  border-radius: 7px;
+  border: 3px solid steelblue;
+}
+
+input {
+  font-family: 'Single Day', cursive;
+  width: 200px; height: 35px;
+  border-radius: 7px;
   font-size: 20px;
 }
