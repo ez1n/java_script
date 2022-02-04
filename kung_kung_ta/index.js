@@ -6,7 +6,7 @@ const used_word = document.querySelector('#used_word');
 let origin_word; //기존 단어
 let new_word; //현재 단어
 
-const real_num = Number(prompt('참가 인원', 1));//인원 정하기
+const real_num = Number(prompt('참가 인원', 1)); //인원 정하기
 input_box.focus(); //커서 놓기
 
 //button event
