@@ -1,4 +1,4 @@
-const num = Number(prompt('참가인원'));
+const num = Number(prompt('참가인원'), 1);
 const $input = document.querySelector('input');
 const $button = document.querySelector('button');
 const $word = document.querySelector('#word');
