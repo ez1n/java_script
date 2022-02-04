@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,15 @@
 <body>
   <h1>쿵쿵따 게임</h1>
 
-  <div>1번째 참가자</div>
-  <div>제시어 : </div>
-  <input type="text">
+  <div id="game">
+    <p><span id="num">1</span>번째 참가자</p>
+    <p>제시어 : <span id="word"></span></p>
+    <input type="text">
+    <button>입력</button>
+  </div>
+  <div id="used_word"></div>
 
   <script src="index.js"></script>
 </body>
+
 </html>
