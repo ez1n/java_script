@@ -17,6 +17,12 @@ h1 {
   text-align: center;
 }
 
+h1:hover {
+  background-color: rgb(254, 255, 167);
+  color: rgb(59, 163, 56);
+  border: 5px solid rgb(59, 163, 56);
+}
+
 #game {
   background-color: rgba(255, 184, 199, 0.384);
   border-radius: 10px;
