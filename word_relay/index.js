@@ -2,7 +2,7 @@ const num = Number(prompt('참가인원', 1));
 const $input = document.querySelector('input');
 const $button = document.querySelector('button');
 const $word = document.querySelector('#word');
-const $order = document.querySelector('#order')
+const $order = document.querySelector('#order');
 let word; //제시어
 let new_word; //현재 단어
 let old_word = new Array(); //지금까지 제시된 단어
@@ -17,7 +17,7 @@ const click_btn = () => {
     if (!old_word.includes(new_word)) {
       word = new_word; //입력 단어 -> 제시어
       $word.textContent = word; //화면에 제시어 표시
-      old_word.push(new_word)
+      old_word.push(new_word);
 
       //순서 넘기기
       const order = Number($order.textContent);
@@ -27,7 +27,7 @@ const click_btn = () => {
         $order.textContent = order + 1;
       }
       const $result = document.querySelector('#result');
-      $result.innerHTML += $word.textContent + '&nbsp;';
+      $result.innerHTML += $word.textContent + '  🠖  ';
       
     } else {
       alert('올바르지 않은 단어입니다!');
