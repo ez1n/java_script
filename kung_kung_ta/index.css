@@ -1,7 +1,8 @@
 body {
   background-color: lavender;
   font-family: 'Nanum Pen Script', cursive;
-  padding-left: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
   -webkit-user-select:none; 
   -moz-user-select:none; 
   -ms-user-select:none; 
