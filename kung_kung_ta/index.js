@@ -13,10 +13,11 @@ input_box.focus(); //커서 놓기
 //button event
 const on_btn = () => {
   //제시어가 비어있거나 올바른가?
-  if (!last_word || last_word[last_word.length - 1] == new_word[0]) { //empty
+  if ((!last_word) || last_word[last_word.length - 1] == new_word[0]) { //empty
 
-    if (new_word.length == 3) { //단어길이==3
+    if (new_word.length == 3 && !origin_words.includes(new_word)) { //단어길이==3
       word.textContent = new_word;
+      origin_words.push(new_word)
       last_word = new_word; //제시어 -> 현재단어
       used_word.innerHTML += new_word + '  쿵쿵따  ♥ ';
 
@@ -35,7 +36,6 @@ const on_btn = () => {
   } else { //full
     alert('다시 입력해 주세요!');
   }
-  origin_words.push(new_word)
   input_box.value = '';
   input_box.focus();
 };
