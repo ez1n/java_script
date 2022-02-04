@@ -22,11 +22,7 @@ h1 {
   padding-top: 10px;
 }
 
-#number {
-  font-size: 30px;
-}
-
-#text {
+#number, #text {
   font-size: 30px;
 }
 
