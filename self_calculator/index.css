@@ -48,6 +48,7 @@ button {
   margin: 4px;
   border-radius: 50%;
   border: 0px;
+  text-align: center;
 }
 
 button:active {
