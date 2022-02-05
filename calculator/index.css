@@ -7,15 +7,19 @@ body {
 h1 {
   color: rgba(195, 43, 226, 0.822);
   font-weight: 700;
+  margin-left: 10px;
   -webkit-text-stroke-width: 0.5px;
 	-webkit-text-stroke-color: rgb(99, 99, 99)
 }
 
 #main_body {
   border: 5px double rgb(145, 76, 167);
-  width: 280px;
-  border-radius: 10px;
+  width: 290px;
+  border-radius: 20px;
   background-color: rgba(220, 208, 255, 0.616);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #operator {
@@ -31,7 +35,7 @@ h1 {
 #result {
   font-family: 'Grandstander', cursive;
   font-size: 20px;
-  width: 195px; height: 50px;
+  width: 185px; height: 50px;
   margin: 3px;
   text-align: right;
   border-radius: 10px;
