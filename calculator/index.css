@@ -1,0 +1,55 @@
+body {
+  font-family: 'Grandstander', cursive;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+h1 {
+  color: rgba(195, 43, 226, 0.822);
+  font-weight: 700;
+  -webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: rgb(99, 99, 99)
+}
+
+#main_body {
+  border: 5px double rgb(145, 76, 167);
+  width: 280px;
+  border-radius: 10px;
+  background-color: rgba(220, 208, 255, 0.616);
+}
+
+#operator {
+  font-family: 'Grandstander', cursive;
+  font-size: 20px;
+  width: 50px; height: 50px;
+  margin: 3px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(252, 193, 234, 0.719);
+}
+
+#result {
+  font-family: 'Grandstander', cursive;
+  font-size: 20px;
+  width: 195px; height: 50px;
+  margin: 3px;
+  text-align: right;
+  border-radius: 10px;
+  background-color: rgba(252, 193, 234, 0.719);
+}
+
+button {
+  font-family: 'Grandstander', cursive;
+  font-size: 20px;
+  width: 60px; height: 60px;
+  margin: 3px;
+  border-radius: 10px;
+  background-color: rgba(216, 191, 216, 0.658);
+}
+
+button:hover {
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border: 3px solid rgba(190, 173, 183, 0.692);
+  font-size: 25px;
+  color: rgb(255, 132, 173);
+}
