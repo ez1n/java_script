@@ -50,6 +50,10 @@ button {
   border: 0px;
 }
 
+button:active {
+  background-color: rgb(121, 121, 121);
+}
+
 #reset {
   font-size: 25px;
 }
@@ -68,4 +72,12 @@ button {
 #reset, #sign, #percentage {
   background-color: rgb(168, 168, 168);
   color: black;
+}
+
+#divide:active, #multiply:active, #minus:active, #plus:active, #calculate:active {
+  background-color: rgb(255, 255, 255);
+}
+
+#reset:active, #sign:active, #percentage:active {
+  background-color: rgb(199, 198, 198);
 }
