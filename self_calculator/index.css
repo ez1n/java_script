@@ -17,6 +17,7 @@ h1 {
 
 #main_body {
   background-color: rgb(22, 21, 21);
+  box-shadow: 3px 3px 3px 3px gray;
   width: 320px; height: 420px;
   border: 0px;
   border-radius: 50px;
@@ -37,6 +38,10 @@ h1 {
   border: 0px;
   text-align: end;
   cursor:default;
+}
+
+#result:focus {
+  outline: none;
 }
 
 button {

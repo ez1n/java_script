@@ -22,6 +22,19 @@ let number1 = ''; //숫자1
 let number2 = ''; //숫자2
 let operator = ''; //연산자
 
+//경고창
+const warning_notice = Swal.mixin({
+  toast: true, 
+  position: 'center-center', 
+  showConfirmButton: false, 
+  timer: 1000, 
+  timerProgressBar: true, 
+  didOpen: (toast) => { 
+    toast.addEventListener('mouseenter', Swal.stopTimer);
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
+
 //숫자 클릭
 const click_num = (event) => {
   //연산자가 비어있는가?
@@ -99,7 +112,10 @@ const click_calculate = () => {
         number2 = '';
     }
   }
-  alert('숫자를 입력해 주세요!');
+  warning_notice.fire({ 
+    icon: 'warning', 
+    title: '숫자를 입력해 주세요!' 
+  })
 };
 
 //연산자 클릭
@@ -114,7 +130,10 @@ const click_operator = (event) => {
       operator = event.target.textContent;
     }
   } else {
-    alert('숫자를 입력해 주세요!');
+    warning_notice.fire({ 
+      icon: 'warning', 
+      title: '숫자를 입력해 주세요!' 
+    })
   }
 };
 
