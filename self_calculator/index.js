@@ -31,25 +31,14 @@ const click_num = (event) => {
       reset.textContent = 'C';
     }
   } else { //full
-    result.value = '';
-    number2 += event.target.textContent;
+    if (!number2) {
+      result.value = '';
+      number2 += event.target.textContent;
+    } else {
+      number2 += event.target.textContent;
+    }
   }
   result.value += event.target.textContent;
-};
-
-//연산자 클릭
-const click_operator = (event) => {
-  if (number1) {
-    if (!number2) {
-      operator = event.target.textContent;
-    } else {
-      number1 = result.value;
-      number2 = '';
-      operator = event.target.textContent;
-    }
-  } else {
-    alert('숫자를 입력해 주세요!');
-  }
 };
 
 //초기화
@@ -61,21 +50,31 @@ const click_reset = () => {
   reset.textContent = 'AC';
 };
 
-//부호
-const click_sign = () => {
-  if (result.value == '' || result.value == '0') {
-    result.value = '-0';
-  } else {
-    result.value = -(result.value);
-  }
-};
-
 //소숫점
 const click_decimal_point = () => {
-  if (result.value == '') {
-    result.value = '0.';
+  if (!operator) {
+    if(!number1) {
+      number1 +='0.';
+      result.value = '0.';
+      reset.textContent = 'C';
+    } else {
+      if(!number1.includes('.')) {
+        number1 += '.';
+        result.value += '.';
+        return;
+      }
+    }
   } else {
-    result.value += '.';
+    if(!number2) {
+      number2 +='0.';
+      result.value = '0.';
+    } else {
+      if(!number2.includes('.')) {
+        number2 += '.';
+        result.value += '.';
+        return;
+      }
+    }
   }
 };
 
@@ -95,9 +94,47 @@ const click_calculate = () => {
       case '+':
         result.value = Number(number1) + Number(number2);
         return;
+      default : 
+        number1 = result.value;
+        number2 = '';
     }
   }
   alert('숫자를 입력해 주세요!');
+};
+
+//연산자 클릭
+const click_operator = (event) => {
+  if (number1) {
+    if (!number2) {
+      operator = event.target.textContent;
+    } else {
+      click_calculate();
+      number1 = result.value;
+      number2 = '';
+      operator = event.target.textContent;
+    }
+  } else {
+    alert('숫자를 입력해 주세요!');
+  }
+};
+
+//부호
+const click_sign = () => {
+  if (!number1 || result.value == '0') {
+    number1 += '-0';
+    result.value = '-0';
+  } else {
+    number1 = String(-result.value);
+    result.value = number1;
+    number2 = ''
+  }
+};
+
+//백분율
+const click_percentage = () => {
+  result.value /= 100;
+  number1 = result.value;
+  number2 = '';
 };
 
 num0.addEventListener('click', click_num);
@@ -110,7 +147,7 @@ num6.addEventListener('click', click_num);
 num7.addEventListener('click', click_num);
 num8.addEventListener('click', click_num);
 num9.addEventListener('click', click_num);
-percentage.addEventListener('click', click_operator);
+percentage.addEventListener('click', click_percentage);
 divide.addEventListener('click', click_operator);
 multiply.addEventListener('click', click_operator);
 minus.addEventListener('click', click_operator);
