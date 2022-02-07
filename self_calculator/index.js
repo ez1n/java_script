@@ -18,11 +18,11 @@ const plus = document.querySelector('#plus');
 const minus = document.querySelector('#minus');
 const calculate = document.querySelector('#calculate');
 const decimal_point = document.querySelector('#decimal_point');
-let number1 = ''; //숫자1
-let number2 = ''; //숫자2
-let operator = ''; //연산자
+let number1 = '';
+let number2 = '';
+let operator = '';
 
-//경고창
+//alert
 const warning_notice = Swal.mixin({
   toast: true,
   position: 'center-center',
@@ -41,14 +41,23 @@ const click_num = (event) => {
   //operator_empty
   if (!operator) {
     number1 += event.target.textContent;
-    result.value += event.target.textContent;
+    result.value = number1;
     if (number1 != 0) {
       reset.textContent = 'C';
+    } else if (event.target.textContent == '0') {
+      number1 = '0';
+      result.value = '0';
     }
     return;
   }
 
   //operator_full
+  if (number2 == '0' && event.target.textContent == '0') {
+    number2 = '0';
+    result.value = '0';
+    return;
+  }
+  
   if (!number2) {
     result.value = '';
   }
@@ -132,7 +141,7 @@ const click_calculate = () => {
   }
 };
 
-//연산자 클릭
+//operator btn event
 const click_operator = (event) => {
   if (number1) {
     if (!number2) {
@@ -151,7 +160,7 @@ const click_operator = (event) => {
   }
 };
 
-//부호
+//sign btn event
 const click_sign = () => {
   if (!number1 || result.value == '0') {
     number1 += '-0';
@@ -163,7 +172,7 @@ const click_sign = () => {
   }
 };
 
-//백분율
+//percentage btn event
 const click_percentage = () => {
   result.value /= 100;
   number1 = result.value;
