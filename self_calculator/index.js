@@ -24,37 +24,39 @@ let operator = ''; //연산자
 
 //경고창
 const warning_notice = Swal.mixin({
-  toast: true, 
-  position: 'center-center', 
-  showConfirmButton: false, 
-  timer: 1000, 
-  timerProgressBar: true, 
-  didOpen: (toast) => { 
+  toast: true,
+  position: 'center-center',
+  showConfirmButton: false,
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
     toast.addEventListener('mouseenter', Swal.stopTimer);
-    toast.addEventListener('mouseleave', Swal.resumeTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer);
   }
 });
 
-//숫자 클릭
+//number btn event
 const click_num = (event) => {
-  //연산자가 비어있는가?
-  if (!operator) { //empty
+
+  //operator_empty
+  if (!operator) {
     number1 += event.target.textContent;
+    result.value += event.target.textContent;
     if (number1 != 0) {
       reset.textContent = 'C';
     }
-  } else { //full
-    if (!number2) {
-      result.value = '';
-      number2 += event.target.textContent;
-    } else {
-      number2 += event.target.textContent;
-    }
+    return;
   }
+
+  //operator_full
+  if (!number2) {
+    result.value = '';
+  }
+  number2 += event.target.textContent;
   result.value += event.target.textContent;
 };
 
-//초기화
+//reset btn event
 const click_reset = () => {
   number1 = '';
   number2 = '';
@@ -63,59 +65,71 @@ const click_reset = () => {
   reset.textContent = 'AC';
 };
 
-//소숫점
+//decimal_point btn event
 const click_decimal_point = () => {
+  //operator_empty
   if (!operator) {
-    if(!number1) {
-      number1 +='0.';
+    //number1_empty
+    if (!number1) {
+      number1 += '0.';
       result.value = '0.';
       reset.textContent = 'C';
-    } else {
-      if(!number1.includes('.')) {
-        number1 += '.';
-        result.value += '.';
-        return;
-      }
     }
-  } else {
-    if(!number2) {
-      number2 +='0.';
-      result.value = '0.';
-    } else {
-      if(!number2.includes('.')) {
-        number2 += '.';
-        result.value += '.';
-        return;
-      }
+    //number1_full
+    if (!number1.includes('.')) {
+      number1 += '.';
+      result.value += '.';
     }
+    return;
+  }
+
+  //operator_full
+  //number2_empty
+  if (!number2) {
+    number2 = '0.';
+    result.value = '0.';
+    return;
+  }
+  //number2_full
+  if (!number2.includes('.')) {
+    number2 += '.';
+    result.value += '.';
   }
 };
 
-//결과출력
+//result btn event
 const click_calculate = () => {
   if (number2) {
     switch (operator) {
       case '÷':
         result.value = Number(number1) / Number(number2);
-        return;
+        break;
+
       case '×':
         result.value = Number(number1) * Number(number2);
-        return;
+        break;
+
       case '-':
         result.value = Number(number1) - Number(number2);
-        return;
+        break;
+
       case '+':
         result.value = Number(number1) + Number(number2);
-        return;
-      default : 
-        number1 = result.value;
-        number2 = '';
+        break;
+
+      default: break;
     }
+    number1 = result.value;
+    number2 = '';
+    operator = '';
+  } else {
+    number1 = '';
+    result.value = '';
+    warning_notice.fire({
+      icon: 'warning',
+      title: '숫자를 입력해 주세요!'
+    });
   }
-  warning_notice.fire({ 
-    icon: 'warning', 
-    title: '숫자를 입력해 주세요!' 
-  })
 };
 
 //연산자 클릭
@@ -130,10 +144,10 @@ const click_operator = (event) => {
       operator = event.target.textContent;
     }
   } else {
-    warning_notice.fire({ 
-      icon: 'warning', 
-      title: '숫자를 입력해 주세요!' 
-    })
+    warning_notice.fire({
+      icon: 'warning',
+      title: '숫자를 입력해 주세요!'
+    });
   }
 };
 
