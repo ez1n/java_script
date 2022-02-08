@@ -1,6 +1,6 @@
-const result = document.querySelector('#result');
 const num_btns = document.querySelectorAll('#num');
 const operator_btns = document.querySelectorAll('#operator');
+const result = document.querySelector('#result');
 const reset = document.querySelector('#reset');
 const sign = document.querySelector('#sign');
 const percentage = document.querySelector('#percentage');
