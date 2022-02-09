@@ -1,0 +1,43 @@
+body {
+  font-family: 'Jua', sans-serif;
+  background-color: rgb(255, 255, 205);
+  margin-left: 30px;
+  user-select:none
+}
+
+#main_body {
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+  color: coral;
+	text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+
+#input {
+  font-family: 'Jua', sans-serif;
+  border-radius: 10px;
+  border: 2px solid;
+  height: 40px;
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+button {
+  font-family: 'Jua', sans-serif;
+  border-radius: 10px;
+  background-color: rgba(255, 151, 151, 0.678);
+  height: 40px;
+  padding-top: 10px;
+}
+
+button:hover {
+  background-color: rgb(255, 151, 151);
+  box-shadow: 2px 2px 2px 2px darkgray;
+  cursor: pointer;
+}
+
+#logs {
+  font-size: 25px;
+}

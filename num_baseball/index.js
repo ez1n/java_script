@@ -1,6 +1,7 @@
 const input = document.querySelector('#input');
 const form = document.querySelector('#form');
 const logs = document.querySelector('#logs');
+input.focus();
 
 //alert
 const warning_notice = Swal.mixin({
@@ -25,7 +26,7 @@ if (number_num > 10) {
 //1~10 array
 const numbers = [];
 for (let i = 0; i < 10; i += 1) {
-  numbers.push(i + 1);
+  numbers.push(i);
 };
 
 //answer
@@ -38,61 +39,91 @@ for (let i = 0; i < number_num; i += 1) {
 
 //check_validation
 const try_num = [];
-const check_input = () => {
-  if (input.length != number_num) {
-    return warning_notice({
+const check_input = (in_put) => {
+  if (isNaN(Number(in_put)) || in_put == '') {
+    warning_notice.fire({
       icon: 'warning',
-      title: '길이가 다릅니다!'
+      title: '숫자를 입력하라.'
     });
+    return;
   }
-  if (new Set(input).size != number_num) {
-    return warning_notice({
+
+  if (in_put.length != number_num) {
+    warning_notice.fire({
       icon: 'warning',
-      title: '중복된 값이 있습니다!'
+      title: '길이가 다르다.'
     });
+    return;
   }
-  if (try_num.includes(input)) {
-    return warning_notice({
+
+  if (new Set(in_put).size != number_num) {
+    warning_notice.fire({
       icon: 'warning',
-      title: '이미 시도한 값입니다!'
+      title: '중복된 값이 있다.'
     });
+    return;
   }
+
+  if (try_num.includes(in_put)) {
+    warning_notice.fire({
+      icon: 'warning',
+      title: '이미 입력한 값이다.'
+    });
+    return;
+  }
+
+  return true;
 };
 
 form.addEventListener('submit', (event) => {
   event.preventDefault(); //prevent initialization
-  const value = input.value;
+  const input_value = input.value;
   input.value = '';
-  const valid = check_input(value);
+  const valid = check_input(input_value);
 
   if (!valid) return;
-  if (answer.join('') == value) {
+  if (answer.join('') === input_value) {
     logs.textContent = '홈런!';
+    warning_notice.fire({
+      icon: 'success',
+      title: '⚾홈런⚾'
+    })
     return;
   }
-  if (try_num.length > 10) {
+  if (try_num.length >= 9) {
     const message = document.createTextNode(`패배! 정답은 ${answer.join('')} 입니다!`);
     logs.appendChild(message);
-    return;
+    return warning_notice.fire({
+      icon: 'error',
+      title: '패배🤪'
+    });
   }
 
   let strike = 0;
   let ball = 0;
-  let out = '';
-  for (let i = 0; i < answer.length; i += 1) {
-    const index = value.indexOf(answer[i]);
-    if (index == -1) {
-      out = 'out';
-      logs.innerHTML(`${out}`);
-      return;
-    }
-    if (index === i) {
-      strike += 1;
-    } else {
-      ball += 1;
-    }
-  }
+  let out_num = 0;
 
-  logs.innerHTML(`${value}: ${strike} S ${ball} B` + '<br>');
-  try_num.push(value);
+  for (let i = 0; i < answer.length; i += 1) {
+    const index = input_value.indexOf(answer[i]);
+    if (index > -1) {
+      if (index == i) {
+        strike += 1;
+      } else {
+        ball += 1;
+      }
+    } else {
+      out_num += 1;
+    }
+  };
+
+  if (out_num == 3) {
+    logs.innerHTML += `${try_num.length + 1}. ${input_value} : OUT <br>`;
+    try_num.push(input_value);
+    return;
+  }
+  logs.innerHTML += `${try_num.length + 1}. ${input_value} : ${strike} S ${ball} B <br>`;
+  try_num.push(input_value);
+  input.focus();
 });
+
+
