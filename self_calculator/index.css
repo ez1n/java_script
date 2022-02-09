@@ -64,7 +64,7 @@ button:active {
   font-size: 25px;
 }
 
-#num0 {
+.num0 {
   width: 130px;
   border-radius: 45px;
   text-align: left;
