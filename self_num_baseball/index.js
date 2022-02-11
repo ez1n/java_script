@@ -22,7 +22,7 @@ const warning_notice = Swal.mixin({
 const numbers = Array(10).fill().map((v,i) => i);
 const answer = [];
 for (let i = 0; i < num_number; i += 1) {
-  let index = Math.floor(Math.random() * (numbers.length - 1));
+  const index = Math.floor(Math.random() * (numbers.length - 1));
   answer.push(numbers[index]);
   numbers.splice(index,1);
 };
