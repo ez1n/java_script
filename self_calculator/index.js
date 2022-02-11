@@ -161,7 +161,7 @@ sign.addEventListener('click', () => {
   } else {
     number1 = String(-result.value);
     result.value = number1;
-    number2 = ''
+    number2 = '';
   }
 });
 
