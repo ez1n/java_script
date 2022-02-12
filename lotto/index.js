@@ -51,6 +51,8 @@ const show_balls = (value, parent) => {
 };
 
 result_btn.addEventListener('click', () => {
+  result.textContent = `추첨 결과는? :`
+  bonus.textContent = `보너스 공 :`
   for (let value of win_balls) {
     setTimeout(() => {
       show_balls(value, result)
@@ -60,5 +62,12 @@ result_btn.addEventListener('click', () => {
   setTimeout(() => {
     show_balls(bonus_ball, bonus);
   }, 7000);
+
+  setTimeout(() => {
+    text.innerHTML += '축하합니다!'
+  }, 8000);
+
+  result_btn.innerHTML = `다시<br>추첨하기`
+  text.innerHTML = ''
 });
 
