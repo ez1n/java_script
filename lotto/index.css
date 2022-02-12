@@ -37,7 +37,6 @@ button:active {
 .ball {
   display: inline-block;
   width: 50px; height: 50px;
-  border: 1px solid black;
   border-radius: 50%;
   margin-left: 10px;
   text-align: center;
@@ -47,32 +46,39 @@ button:active {
 
 #under_7 {
   background-color: red;
+  box-shadow: 0 10px 10px 3px rgba(255, 0, 0, 0.26) inset, 0 -10px 15px 3px rgb(170, 35, 35) inset;
 }
 
 #under_13 {
-  background-color: orange;
+  background-color: orangered;
+  box-shadow: 0 10px 10px 3px rgba(255, 68, 0, 0.26) inset, 0 -10px 15px 3px rgb(175, 69, 30) inset;
 }
 
 #under_19 {
   background-color: yellow;
+  box-shadow: 0 10px 10px 3px rgba(255, 255, 0, 0.432) inset, 0 -10px 15px 3px rgb(160, 160, 51) inset;
 }
 
 #under_25 {
   background-color: green;
   color: white;
+  box-shadow: 0 10px 10px 3px rgba(3, 175, 3, 0.26) inset, 0 -10px 15px 3px rgb(9, 58, 9) inset;
 }
 
 #under_32 {
   background-color: blue;
   color: white;
+  box-shadow: 0 10px 10px 3px rgba(74, 74, 236, 0.26) inset, 0 -10px 15px 3px rgb(15, 15, 73) inset;
 }
 
 #under_39 {
   background-color: navy;
   color: white;
+  box-shadow: 0 10px 10px 3px rgba(48, 48, 131, 0.493) inset, 0 -10px 15px 2px rgb(8, 8, 65) inset;
 }
 
 #under_46 {
   background-color: purple;
   color: white;
+  box-shadow: 0 10px 10px 3px rgba(172, 8, 172, 0.26) inset, 0 -10px 15px 3px rgb(66, 7, 66) inset;
 }
