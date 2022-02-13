@@ -1,0 +1,13 @@
+body {
+  margin: 30px;
+  user-select: none;
+}
+
+#computer {
+  width: 142px;
+  height: 200px;
+}
+
+.btn {
+  cursor: pointer;
+}
