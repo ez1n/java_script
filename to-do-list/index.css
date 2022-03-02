@@ -1,6 +1,11 @@
+html {
+  text-align: center;
+}
+
 body {
+  display: inline-block;
   background-color: cornsilk;
-  margin: 3rem;
+  margin: 3rem 0 0 0;
   width: 500px;
   text-align: center;
 }
@@ -11,7 +16,7 @@ body {
 
 .promise {
   margin: 1rem;
-  width: 300px;
+  width: 350px;
   height: 30px;
   outline: none;
   font-size: 20px;
@@ -19,10 +24,27 @@ body {
 }
 
 .check-list {
+  width: 200px;
+  height: 25px;
   border-radius: 10px;
+  font-size: 15x;
+  text-align: center;
   outline: none;
 }
 
+.add-btn {
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+
 .list-input {
+  text-align: justify;
+  margin: 10px 0 0 60px;
   list-style: none;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
