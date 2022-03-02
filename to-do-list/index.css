@@ -1,5 +1,28 @@
+body {
+  background-color: cornsilk;
+  margin: 3rem;
+  width: 500px;
+  text-align: center;
+}
 
+.date {
+  outline: none;
+}
 
+.promise {
+  margin: 1rem;
+  width: 300px;
+  height: 30px;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+.check-list {
+  border-radius: 10px;
+  outline: none;
+}
 
 .list-input {
-  list-style: none;}
+  list-style: none;
+}

@@ -1,5 +1,4 @@
 const date = document.querySelector(".date")
-const checkbox = document.querySelector(".checkbox");
 const checkList = document.querySelector(".check-list");
 const listSpace = document.querySelector(".list-space");
 const addBtn = document.querySelector(".add-btn");
@@ -7,22 +6,23 @@ const addBtn = document.querySelector(".add-btn");
 /**
  * 기능
  * 체크박스 눌렀을때 할일 지우기 (가운데 선)
+ * 리스트 삭제하기
+ * 데이터 저장하기
  */
 
 addBtn.addEventListener("click", () => {
   const li = document.createElement("li");
-  const textInput = document.createElement("input");
   const checkInput = document.createElement("input");
-  textInput.type = "text";
   checkInput.type = "checkbox";
   li.className = "list-input";
-  textInput.className = "check-list";
   checkInput.className = "checkbox";
 
-  li.append(checkInput, ' ',textInput);
+  if (checkList.value == "") {
+    checkList.focus();
+    return;
+  }
+  li.append(checkInput, checkList.value);
   listSpace.appendChild(li);
+  checkList.value = "";
 });
 
-checkbox.addEventListener("click", () => {
-
-});
